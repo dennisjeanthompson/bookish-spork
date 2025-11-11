@@ -68,6 +68,7 @@
     "concurrently": "^8.2.2",
     "connect-pg-simple": "^10.0.0",
     "cors": "^2.8.5",
+    "cross-env": "^10.1.0",
     "date-fns": "^3.6.0",
     "drizzle-orm": "^0.39.1",
     "drizzle-zod": "^0.7.0",
@@ -119,7 +120,6 @@
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "@types/ws": "^8.5.13",
-    "cross-env": "^10.0.0",
     "drizzle-kit": "^0.31.6"
   },
   "optionalDependencies": {
