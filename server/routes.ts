@@ -99,6 +99,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const localNetworkPattern = /^http:\/\/(192\.168\.\d{1,3}\.\d{1,3}|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}):\d+$/;
       if (localNetworkPattern.test(origin)) return callback(null, true);
 
+      // Allow Vercel deployments
+      if (origin.endsWith('.vercel.app')) return callback(null, true);
+      
+      // Allow Render deployments
+      if (origin.endsWith('.onrender.com')) return callback(null, true);
+
       return callback(new Error('Not allowed by CORS'));
     },
     credentials: true
