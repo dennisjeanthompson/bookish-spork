@@ -120,21 +120,21 @@ export default function Setup() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-secondary/10 flex items-center justify-center p-4">
-      <Card className="w-full max-w-2xl shadow-2xl">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-orange-950 dark:via-amber-950 dark:to-yellow-950 flex items-center justify-center p-4">
+      <Card className="w-full max-w-2xl shadow-2xl border-orange-200 dark:border-orange-800">
         <CardHeader className="text-center space-y-2">
           <div className="flex justify-center mb-4">
-            <div className="bg-primary text-primary-foreground p-4 rounded-full">
+            <div className="bg-orange-600 text-white p-4 rounded-full shadow-lg">
               <Coffee className="h-12 w-12" />
             </div>
           </div>
-          <CardTitle className="text-3xl font-bold">Welcome to The Cafe</CardTitle>
-          <CardDescription className="text-lg">
+          <CardTitle className="text-3xl font-bold text-orange-900 dark:text-orange-100">Welcome to The Cafe</CardTitle>
+          <CardDescription className="text-lg text-orange-700 dark:text-orange-300">
             Let's set up your cafe management system
           </CardDescription>
           <div className="flex justify-center gap-2 pt-4">
-            <div className={`h-2 w-16 rounded-full ${step >= 1 ? 'bg-primary' : 'bg-muted'}`} />
-            <div className={`h-2 w-16 rounded-full ${step >= 2 ? 'bg-primary' : 'bg-muted'}`} />
+            <div className={`h-2 w-16 rounded-full ${step >= 1 ? 'bg-orange-600' : 'bg-orange-200 dark:bg-orange-800'}`} />
+            <div className={`h-2 w-16 rounded-full ${step >= 2 ? 'bg-orange-600' : 'bg-orange-200 dark:bg-orange-800'}`} />
           </div>
         </CardHeader>
 
@@ -142,8 +142,8 @@ export default function Setup() {
           {step === 1 && (
             <div className="space-y-4">
               <div className="text-center mb-6">
-                <h3 className="text-xl font-semibold">Step 1: Branch Information</h3>
-                <p className="text-sm text-muted-foreground">Tell us about your cafe location</p>
+                <h3 className="text-xl font-semibold text-orange-900 dark:text-orange-100">Step 1: Branch Information</h3>
+                <p className="text-sm text-orange-600 dark:text-orange-400">Tell us about your cafe location</p>
               </div>
 
               <div className="space-y-2">
@@ -176,7 +176,7 @@ export default function Setup() {
                 />
               </div>
 
-              <Button onClick={handleBranchNext} className="w-full" size="lg">
+              <Button onClick={handleBranchNext} className="w-full bg-orange-600 hover:bg-orange-700 text-white" size="lg">
                 Next: Create Manager Account
               </Button>
             </div>
@@ -185,8 +185,8 @@ export default function Setup() {
           {step === 2 && (
             <form onSubmit={handleManagerSubmit} className="space-y-4">
               <div className="text-center mb-6">
-                <h3 className="text-xl font-semibold">Step 2: Manager Account</h3>
-                <p className="text-sm text-muted-foreground">Create the primary manager account</p>
+                <h3 className="text-xl font-semibold text-orange-900 dark:text-orange-100">Step 2: Manager Account</h3>
+                <p className="text-sm text-orange-600 dark:text-orange-400">Create the primary manager account</p>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
@@ -264,14 +264,14 @@ export default function Setup() {
                   type="button"
                   variant="outline"
                   onClick={() => setStep(1)}
-                  className="w-full"
+                  className="w-full border-orange-300 text-orange-700 hover:bg-orange-50 dark:border-orange-700 dark:text-orange-300 dark:hover:bg-orange-950"
                   size="lg"
                 >
                   Back
                 </Button>
                 <Button
                   type="submit"
-                  className="w-full"
+                  className="w-full bg-orange-600 hover:bg-orange-700 text-white"
                   size="lg"
                   disabled={setupMutation.isPending}
                 >
