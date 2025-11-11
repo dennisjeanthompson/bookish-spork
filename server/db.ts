@@ -8,7 +8,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Path to the SQLite database file
-export const dbPath = path.join(__dirname, '..', 'thecafe.sqlite');
+// In production, use /tmp directory which is writable on most platforms
+// In development, use the project root directory
+export const dbPath = process.env.NODE_ENV === 'production' 
+  ? '/tmp/thecafe.sqlite'
+  : path.join(__dirname, '..', 'thecafe.sqlite');
 
 // Create a new SQLite database connection
 let sqlite = new Database(dbPath);
