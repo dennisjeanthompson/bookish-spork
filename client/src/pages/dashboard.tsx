@@ -118,58 +118,58 @@ export default function Dashboard() {
 
           {/* Team Hours Summary */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900 border-purple-200 dark:border-purple-800">
+            <Card className="bg-gradient-to-br from-primary/10 to-primary/20 dark:from-primary/20 dark:to-primary/30 border-primary/30">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-purple-700 dark:text-purple-300 font-medium mb-1">Team Hours This Week</p>
-                    <p className="text-3xl font-bold text-purple-700 dark:text-purple-300">
+                    <p className="text-sm text-primary font-semibold mb-1">Team Hours This Week</p>
+                    <p className="text-3xl font-bold text-primary">
                       {teamHours?.thisWeek?.toFixed(1) || '0.0'}
                     </p>
-                    <p className="text-xs text-purple-600 dark:text-purple-400 mt-1">
+                    <p className="text-xs text-primary/80 mt-1">
                       {teamHours?.weekShifts || 0} shifts
                     </p>
                   </div>
-                  <div className="w-12 h-12 bg-purple-200 dark:bg-purple-800 rounded-lg flex items-center justify-center">
-                    <Clock className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
+                    <Clock className="h-6 w-6 text-primary" />
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950 dark:to-orange-900 border-orange-200 dark:border-orange-800">
+            <Card className="bg-gradient-to-br from-accent/10 to-accent/20 dark:from-accent/20 dark:to-accent/30 border-accent/30">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-orange-700 dark:text-orange-300 font-medium mb-1">Team Hours This Month</p>
-                    <p className="text-3xl font-bold text-orange-700 dark:text-orange-300">
+                    <p className="text-sm text-accent font-semibold mb-1">Team Hours This Month</p>
+                    <p className="text-3xl font-bold text-accent">
                       {teamHours?.thisMonth?.toFixed(1) || '0.0'}
                     </p>
-                    <p className="text-xs text-orange-600 dark:text-orange-400 mt-1">
+                    <p className="text-xs text-accent/80 mt-1">
                       {teamHours?.monthShifts || 0} shifts
                     </p>
                   </div>
-                  <div className="w-12 h-12 bg-orange-200 dark:bg-orange-800 rounded-lg flex items-center justify-center">
-                    <Clock className="h-6 w-6 text-orange-600 dark:text-orange-400" />
+                  <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
+                    <Clock className="h-6 w-6 text-accent" />
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 border-blue-200 dark:border-blue-800">
+            <Card className="bg-gradient-to-br from-secondary/30 to-secondary/50 dark:from-secondary/20 dark:to-secondary/30 border-secondary/40">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-blue-700 dark:text-blue-300 font-medium mb-1">Active Employees</p>
-                    <p className="text-3xl font-bold text-blue-700 dark:text-blue-300">
+                    <p className="text-sm text-foreground font-semibold mb-1">Active Employees</p>
+                    <p className="text-3xl font-bold text-foreground">
                       {teamHours?.employeeCount || 0}
                     </p>
-                    <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">
+                    <p className="text-xs text-muted-foreground mt-1">
                       in your branch
                     </p>
                   </div>
-                  <div className="w-12 h-12 bg-blue-200 dark:bg-blue-800 rounded-lg flex items-center justify-center">
-                    <Users className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  <div className="w-12 h-12 bg-secondary/50 rounded-lg flex items-center justify-center">
+                    <Users className="h-6 w-6 text-foreground" />
                   </div>
                 </div>
               </CardContent>
