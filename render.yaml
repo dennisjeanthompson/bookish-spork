@@ -1,0 +1,22 @@
+services:
+  # Main web service (serves both API and static frontend)
+  - type: web
+    name: bookish-spork
+    runtime: node
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: SESSION_SECRET
+        generateValue: true
+    disk:
+      name: sqlite-data
+      mountPath: /opt/render/project/src
+      sizeGB: 1
+    healthCheckPath: /api/health

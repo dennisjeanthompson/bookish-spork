@@ -102,3 +102,42 @@ john / password123 - Barista
 jane / password123 - Cashier
 mike / password123 - Chef
 emma / password123 - Barista
+
+# Deployment
+
+This app can be deployed to several free hosting platforms. See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed guides.
+
+## Quick Deploy Options
+
+### 🌟 Render (Recommended)
+Best for SQLite apps with persistent storage included.
+
+```bash
+# 1. Run the deployment helper
+./deploy-render.sh
+
+# 2. Push to GitHub
+git push origin main
+
+# 3. Deploy on Render
+# Go to https://render.com → New Blueprint → Connect repo
+```
+
+**Free Tier:** 750 hrs/month, 1GB persistent disk, auto-sleeps after 15 min
+
+### ⚡ Railway
+```bash
+npm i -g @railway/cli
+railway login
+railway init
+railway up
+```
+
+### 🐳 Fly.io
+```bash
+curl -L https://fly.io/install.sh | sh
+fly launch
+fly deploy
+```
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete instructions and troubleshooting.
