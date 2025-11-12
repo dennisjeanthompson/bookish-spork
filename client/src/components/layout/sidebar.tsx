@@ -62,7 +62,6 @@ export default function Sidebar() {
   );
 
   return (
-      return (
     <div className="h-screen w-64 bg-card border-r border-border flex flex-col shadow-sm">
       {/* Logo/Brand */}
       <div className="p-6 border-b border-border">
@@ -78,7 +77,6 @@ export default function Sidebar() {
       </div>
       
       {/* Navigation */}
-            {/* Navigation */}
       <nav className="flex-1 p-4 overflow-y-auto">
         <div className="space-y-1">
           {navigationItems.map((item) => {
@@ -104,12 +102,11 @@ export default function Sidebar() {
       </nav>
 
       {/* Mini Calendar */}
-      <div className="p-4 border-t border-gray-200 dark:border-gray-800">
+      <div className="p-4 border-t border-border">
         <MiniCalendar />
       </div>
 
       {/* User Profile */}
-            {/* User Profile */}
       <div className="p-4 border-t border-border">
         <div className="flex items-center space-x-3 p-3 rounded-lg bg-muted/50">
           <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-medium shadow-sm">
@@ -132,9 +129,6 @@ export default function Sidebar() {
           </button>
         </div>
       </div>
-    </div>
-  );
-}
     </div>
   );
 }
