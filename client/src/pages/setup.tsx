@@ -5,11 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Coffee } from "lucide-react";
+import { Coffee, LogIn } from "lucide-react";
 
 export default function Setup() {
   const { toast } = useToast();
   const [step, setStep] = useState(1);
+  const [showLogin, setShowLogin] = useState(false);
   
   // Branch data
   const [branchData, setBranchData] = useState({
@@ -119,6 +120,12 @@ export default function Setup() {
     });
   };
 
+  // If user clicks login button, redirect to login page
+  if (showLogin) {
+    window.location.href = '/login';
+    return null;
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-orange-950 dark:via-amber-950 dark:to-yellow-950 flex items-center justify-center p-4">
       <Card className="w-full max-w-2xl shadow-2xl border-orange-200 dark:border-orange-800">
@@ -135,6 +142,17 @@ export default function Setup() {
           <div className="flex justify-center gap-2 pt-4">
             <div className={`h-2 w-16 rounded-full ${step >= 1 ? 'bg-orange-600' : 'bg-orange-200 dark:bg-orange-800'}`} />
             <div className={`h-2 w-16 rounded-full ${step >= 2 ? 'bg-orange-600' : 'bg-orange-200 dark:bg-orange-800'}`} />
+          </div>
+          
+          {/* Login link for existing users/employees */}
+          <div className="pt-4 border-t border-orange-200 dark:border-orange-800">
+            <button
+              onClick={() => setShowLogin(true)}
+              className="text-sm text-orange-600 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-300 flex items-center justify-center gap-2 mx-auto transition-colors"
+            >
+              <LogIn className="h-4 w-4" />
+              <span>Already have an account? Login here</span>
+            </button>
           </div>
         </CardHeader>
 
