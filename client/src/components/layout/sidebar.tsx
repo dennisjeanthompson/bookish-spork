@@ -62,41 +62,45 @@ export default function Sidebar() {
   );
 
   return (
-    <div className="w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 flex flex-col">
-      {/* Logo */}
-      <div className="p-6 border-b border-gray-200 dark:border-gray-800">
+      return (
+    <div className="h-screen w-64 bg-card border-r border-border flex flex-col shadow-sm">
+      {/* Logo/Brand */}
+      <div className="p-6 border-b border-border">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-sm">
-            <Coffee className="h-6 w-6 text-white coffee-steam" />
+          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-md">
+            <Coffee className="h-6 w-6 text-primary-foreground" />
           </div>
           <div>
-            <h1 className="text-xl font-semibold text-gray-900 dark:text-gray-100">The Café</h1>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Smart Payroll System</p>
+            <h1 className="text-lg font-semibold text-foreground">The Café</h1>
+            <p className="text-xs text-muted-foreground">Smart Payroll System</p>
           </div>
         </div>
       </div>
       
       {/* Navigation */}
-      <nav className="p-3 space-y-1 flex-1">
-        {filteredNavigation.map((item) => {
-          const isActive = location === item.href;
-          return (
-            <Link key={item.name} href={item.href}>
-              <a
-                className={cn(
-                  "flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-all font-medium text-sm",
-                  isActive
-                    ? "bg-orange-500 text-white shadow-sm"
-                    : "hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
-                )}
-                data-testid={`nav-${item.href.slice(1) || 'dashboard'}`}
-              >
-                <item.icon className="h-5 w-5" />
-                <span>{item.name}</span>
-              </a>
-            </Link>
-          );
-        })}
+            {/* Navigation */}
+      <nav className="flex-1 p-4 overflow-y-auto">
+        <div className="space-y-1">
+          {navigationItems.map((item) => {
+            const isActive = location === item.href;
+            const Icon = item.icon;
+            
+            return (
+              <Link key={item.href} href={item.href}>
+                <a
+                  className={`flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-all ${
+                    isActive
+                      ? 'bg-primary text-primary-foreground shadow-sm font-medium'
+                      : 'text-foreground hover:bg-muted'
+                  }`}
+                >
+                  <Icon className="h-5 w-5" />
+                  <span className="text-sm">{item.label}</span>
+                </a>
+              </Link>
+            );
+          })}
+        </div>
       </nav>
 
       {/* Mini Calendar */}
@@ -105,32 +109,32 @@ export default function Sidebar() {
       </div>
 
       {/* User Profile */}
-      <div className="p-4 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800">
-        <div className="flex items-center space-x-3 mb-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-sm">
-            <span className="text-white font-semibold text-sm">
-              {currentUser && getInitials(currentUser.firstName, currentUser.lastName)}
-            </span>
+            {/* User Profile */}
+      <div className="p-4 border-t border-border">
+        <div className="flex items-center space-x-3 p-3 rounded-lg bg-muted/50">
+          <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-medium shadow-sm">
+            {user?.name?.charAt(0).toUpperCase() || 'U'}
           </div>
-          <div className="flex-1">
-            <p className="font-semibold text-sm text-gray-900 dark:text-gray-100" data-testid="text-user-name">
-              {currentUser?.firstName} {currentUser?.lastName}
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-medium text-foreground truncate">
+              {user?.name || 'User'}
             </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400" data-testid="text-user-role">
-              {currentUser?.role === "manager" ? "Manager" : "Employee"}
+            <p className="text-xs text-muted-foreground capitalize truncate">
+              {user?.role || 'Employee'}
             </p>
           </div>
-          <Button
-            variant="ghost"
-            size="sm"
+          <button
             onClick={handleLogout}
-            data-testid="button-logout"
-            className="hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400"
+            className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+            title="Logout"
           >
             <LogOut className="h-4 w-4" />
-          </Button>
+          </button>
         </div>
       </div>
+    </div>
+  );
+}
     </div>
   );
 }

@@ -482,42 +482,42 @@ export default function Employees() {
 
   return (
     <div className="p-6 space-y-6">
-      {/* Employee Statistics Dashboard */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200">
+      {/* Statistics Cards */}
+      <div className="grid gap-4 md:grid-cols-3">
+        <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-gray-900">Total Employees</CardTitle>
-            <Users className="h-4 w-4 text-orange-500" />
+            <CardTitle className="text-sm font-medium">Total Employees</CardTitle>
+            <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-gray-900">{stats.totalEmployees}</div>
-            <p className="text-xs text-gray-600">
-              {stats.activeEmployees} active
+            <div className="text-2xl font-bold">{stats.total}</div>
+            <p className="text-xs text-muted-foreground mt-1">
+              {stats.active} active
             </p>
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-br from-amber-50 to-amber-100 border-amber-200">
+        <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-gray-900">Hours This Month</CardTitle>
-            <Clock className="h-4 w-4 text-amber-500" />
+            <CardTitle className="text-sm font-medium">Hours This Month</CardTitle>
+            <Clock className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-gray-900">{stats.totalHoursThisMonth.toFixed(1)}</div>
-            <p className="text-xs text-gray-600">
+            <div className="text-2xl font-bold">0.0</div>
+            <p className="text-xs text-muted-foreground mt-1">
               Total worked hours
             </p>
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100 border-yellow-200">
+        <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-gray-900">Payroll Cost</CardTitle>
-            <DollarSign className="h-4 w-4 text-yellow-600" />
+            <CardTitle className="text-sm font-medium">Payroll Cost</CardTitle>
+            <DollarSign className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-gray-900">₱{stats.totalPayrollThisMonth.toFixed(2)}</div>
-            <p className="text-xs text-gray-600">
+            <div className="text-2xl font-bold">₱0.00</div>
+            <p className="text-xs text-muted-foreground mt-1">
               This month
             </p>
           </CardContent>

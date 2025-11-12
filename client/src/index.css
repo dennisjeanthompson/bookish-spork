@@ -2,55 +2,28 @@
 
 @layer base {
   :root {
-    /* Minimalist warm café color palette */
-    --primary: 25 95% 53%;        /* Bright orange #FF6B35 */
+    /* Warm brown/orange café color palette */
+    --primary: 25 65% 50%;        /* Rich brown-orange #C17946 */
     --primary-foreground: 0 0% 100%;
     
-    --accent: 38 90% 60%;         /* Warm amber #FFB84D */
+    --accent: 25 65% 50%;         /* Same as primary for consistency */
     --accent-foreground: 0 0% 100%;
     
-    --secondary: 42 40% 96%;      /* Very light beige #FAF8F5 */
-    --secondary-foreground: 25 20% 25%;
+    --secondary: 30 25% 95%;      /* Very light warm gray */
+    --secondary-foreground: 20 20% 20%;
     
-    --background: 0 0% 100%;      /* Pure white */
-    --foreground: 0 0% 13%;       /* Almost black text #212121 */
+    --background: 30 20% 97%;     /* Warm off-white background */
+    --foreground: 20 14% 20%;     /* Dark brown text */
     
     --card: 0 0% 100%;            /* Pure white cards */
-    --card-foreground: 0 0% 13%;
+    --card-foreground: 20 14% 20%;
     
-    --muted: 42 20% 96%;          /* Light gray-beige */
-    --muted-foreground: 0 0% 45%;
+    --muted: 30 15% 92%;          /* Muted warm gray */
+    --muted-foreground: 20 10% 45%;
     
-    --border: 0 0% 90%;           /* Light gray border #E5E5E5 */
-    --input: 0 0% 90%;
-    --ring: 25 95% 53%;
-    
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-  }
-
-  .dark {
-    --primary: 25 95% 53%;
-    --primary-foreground: 0 0% 100%;
-    
-    --accent: 38 90% 60%;
-    --accent-foreground: 0 0% 100%;
-    
-    --secondary: 25 10% 15%;
-    --secondary-foreground: 42 40% 96%;
-    
-    --background: 0 0% 7%;        /* Very dark but not black */
-    --foreground: 0 0% 95%;       /* Off-white text */
-    
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 95%;
-    
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-    
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 25 95% 53%;
+    --border: 30 15% 88%;         /* Warm gray border */
+    --input: 30 15% 88%;
+    --ring: 25 65% 50%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -63,10 +36,9 @@
   }
   
   body {
-    background: #FAFAFA;
+    background: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -74,77 +46,7 @@
   
   h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
-    color: #212121;
-    letter-spacing: -0.02em;
+    color: hsl(var(--foreground));
+    letter-spacing: -0.01em;
   }
-  
-  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-    color: #F5F5F5;
-  }
-}
-
-/* Custom animations for the café theme */
-@keyframes coffee-steam {
-  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
-  50% { transform: translateY(-5px) rotate(2deg); opacity: 1; }
-}
-
-.coffee-steam {
-  animation: coffee-steam 2s ease-in-out infinite;
-}
-
-/* Clock animation */
-@keyframes pulse-clock {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-.pulse-clock {
-  animation: pulse-clock 2s ease-in-out infinite;
-}
-
-/* Status indicator animations with vibrant colors */
-@keyframes status-working {
-  0%, 100% { 
-    background-color: hsl(120 70% 45%);
-    box-shadow: 0 0 10px hsl(120 70% 45% / 0.5);
-  }
-  50% { 
-    background-color: hsl(120 70% 55%);
-    box-shadow: 0 0 15px hsl(120 70% 55% / 0.7);
-  }
-}
-
-@keyframes status-break {
-  0%, 100% { 
-    background-color: hsl(42 80% 55%);
-    box-shadow: 0 0 10px hsl(42 80% 55% / 0.5);
-  }
-  50% { 
-    background-color: hsl(42 80% 65%);
-    box-shadow: 0 0 15px hsl(42 80% 65% / 0.7);
-  }
-}
-
-@keyframes status-late {
-  0%, 100% { 
-    background-color: hsl(0 85% 60%);
-    box-shadow: 0 0 10px hsl(0 85% 60% / 0.5);
-  }
-  50% { 
-    background-color: hsl(0 85% 70%);
-    box-shadow: 0 0 15px hsl(0 85% 70% / 0.7);
-  }
-}
-
-.status-working {
-  animation: status-working 3s ease-in-out infinite;
-}
-
-.status-break {
-  animation: status-break 3s ease-in-out infinite;
-}
-
-.status-late {
-  animation: status-late 3s ease-in-out infinite;
 }
