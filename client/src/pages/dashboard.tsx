@@ -118,59 +118,59 @@ export default function Dashboard() {
 
           {/* Team Hours Summary */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900 dark:to-orange-800 border-orange-300 dark:border-orange-700">
+            <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200">
               <CardContent className="p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-orange-700 dark:text-orange-300 font-semibold mb-1">Team Hours This Week</p>
-                    <p className="text-3xl font-bold text-orange-800 dark:text-orange-200">
-                      {teamHours?.thisWeek?.toFixed(1) || '0.0'}
-                    </p>
-                    <p className="text-xs text-orange-600 dark:text-orange-400 mt-1">
-                      {teamHours?.weekShifts || 0} shifts
-                    </p>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
+                    <Clock className="h-6 w-6 text-white" />
                   </div>
-                  <div className="w-12 h-12 bg-orange-200 dark:bg-orange-800 rounded-lg flex items-center justify-center">
-                    <Clock className="h-6 w-6 text-orange-700 dark:text-orange-300" />
-                  </div>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600 font-medium mb-1">Team Hours This Week</p>
+                  <p className="text-3xl font-semibold text-gray-900">
+                    {teamHours?.thisWeek?.toFixed(1) || '0.0'}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {teamHours?.weekShifts || 0} shifts
+                  </p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-900 dark:to-amber-800 border-amber-300 dark:border-amber-700">
+            <Card className="bg-gradient-to-br from-amber-50 to-amber-100 border-amber-200">
               <CardContent className="p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-amber-700 dark:text-amber-300 font-semibold mb-1">Team Hours This Month</p>
-                    <p className="text-3xl font-bold text-amber-800 dark:text-amber-200">
-                      {teamHours?.thisMonth?.toFixed(1) || '0.0'}
-                    </p>
-                    <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">
-                      {teamHours?.monthShifts || 0} shifts
-                    </p>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center">
+                    <Clock className="h-6 w-6 text-white" />
                   </div>
-                  <div className="w-12 h-12 bg-amber-200 dark:bg-amber-800 rounded-lg flex items-center justify-center">
-                    <Clock className="h-6 w-6 text-amber-700 dark:text-amber-300" />
-                  </div>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600 font-medium mb-1">Team Hours This Month</p>
+                  <p className="text-3xl font-semibold text-gray-900">
+                    {teamHours?.thisMonth?.toFixed(1) || '0.0'}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {teamHours?.monthShifts || 0} shifts
+                  </p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-yellow-100 to-yellow-200 dark:from-yellow-900 dark:to-yellow-800 border-yellow-300 dark:border-yellow-700">
+            <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100 border-yellow-200">
               <CardContent className="p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-yellow-800 dark:text-yellow-300 font-semibold mb-1">Active Employees</p>
-                    <p className="text-3xl font-bold text-yellow-900 dark:text-yellow-200">
-                      {teamHours?.employeeCount || 0}
-                    </p>
-                    <p className="text-xs text-yellow-700 dark:text-yellow-400 mt-1">
-                      in your branch
-                    </p>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center">
+                    <Users className="h-6 w-6 text-white" />
                   </div>
-                  <div className="w-12 h-12 bg-yellow-200 dark:bg-yellow-800 rounded-lg flex items-center justify-center">
-                    <Users className="h-6 w-6 text-yellow-800 dark:text-yellow-300" />
-                  </div>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600 font-medium mb-1">Active Employees</p>
+                  <p className="text-3xl font-semibold text-gray-900">
+                    {teamHours?.employeeCount || 0}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    in your branch
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -182,30 +182,30 @@ export default function Dashboard() {
             {/* Today's Schedule */}
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center">
-                  <CalendarDays className="h-5 w-5 text-primary mr-2" />
+                <CardTitle className="flex items-center text-gray-900">
+                  <CalendarDays className="h-5 w-5 text-orange-500 mr-2" />
                   Today's Schedule
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {todayShifts.length > 0 ? (
                     todayShifts.map((shift: any) => (
                       <div
                         key={shift.id}
-                        className="flex items-center justify-between p-4 border border-border rounded-lg"
+                        className="flex items-center justify-between p-4 border border-gray-200 rounded-xl hover:border-orange-300 transition-colors"
                         data-testid={`shift-${shift.id}`}
                       >
                         <div>
-                          <p className="font-medium">{shift.user?.firstName} {shift.user?.lastName}</p>
-                          <p className="text-sm text-muted-foreground">{shift.position}</p>
+                          <p className="font-medium text-gray-900">{shift.user?.firstName} {shift.user?.lastName}</p>
+                          <p className="text-sm text-gray-600">{shift.position}</p>
                         </div>
                         <div className="text-right">
-                          <p className="font-medium">
+                          <p className="font-medium text-gray-900">
                             {new Date(shift.startTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - 
                             {new Date(shift.endTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                           </p>
-                          <span className="text-xs px-2 py-1 bg-accent text-accent-foreground rounded">
+                          <span className="text-xs px-3 py-1 bg-orange-100 text-orange-700 rounded-full font-medium">
                             {shift.status}
                           </span>
                         </div>

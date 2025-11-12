@@ -34,44 +34,44 @@ export default function EmployeeStatus() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center">
-          <UserCog className="h-5 w-5 text-primary mr-2" />
+        <CardTitle className="flex items-center text-gray-900">
+          <UserCog className="h-5 w-5 text-orange-500 mr-2" />
           Employee Status
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
+        <div className="space-y-3">
           {employeeStatus?.employeeStatus?.length > 0 ? (
             employeeStatus.employeeStatus.map((employee: any) => (
               <div
                 key={employee.user.id}
-                className="flex items-center justify-between p-4 bg-muted/50 rounded-lg"
+                className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
                 data-testid={`employee-status-${employee.user.id}`}
               >
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                    <span className="text-primary-foreground font-medium text-sm">
+                  <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-sm">
+                    <span className="text-white font-semibold text-sm">
                       {getInitials(employee.user.firstName, employee.user.lastName)}
                     </span>
                   </div>
                   <div>
-                    <p className="font-medium" data-testid={`employee-name-${employee.user.id}`}>
+                    <p className="font-medium text-gray-900" data-testid={`employee-name-${employee.user.id}`}>
                       {employee.user.firstName} {employee.user.lastName}
                     </p>
-                    <p className="text-sm text-muted-foreground" data-testid={`employee-position-${employee.user.id}`}>
+                    <p className="text-sm text-gray-600" data-testid={`employee-position-${employee.user.id}`}>
                       {employee.user.position}
                     </p>
                   </div>
                 </div>
                 <div className="text-right">
                   <span 
-                    className={`px-3 py-1 text-xs rounded-full ${getStatusColor(employee.status)}`}
+                    className={`px-3 py-1 text-xs rounded-full font-medium ${getStatusColor(employee.status)}`}
                     data-testid={`employee-status-badge-${employee.user.id}`}
                   >
                     {employee.status}
                   </span>
                   {employee.statusInfo && (
-                    <p className="text-xs text-muted-foreground mt-1" data-testid={`employee-status-info-${employee.user.id}`}>
+                    <p className="text-xs text-gray-600 mt-1" data-testid={`employee-status-info-${employee.user.id}`}>
                       {employee.statusInfo}
                     </p>
                   )}
@@ -79,7 +79,7 @@ export default function EmployeeStatus() {
               </div>
             ))
           ) : (
-            <p className="text-muted-foreground text-center py-4">
+            <p className="text-gray-600 text-center py-4">
               No employees found
             </p>
           )}
