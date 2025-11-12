@@ -77,7 +77,7 @@ export default function Sidebar() {
       </div>
       
       {/* Navigation */}
-      <nav className="p-3 space-y-1 flex-1">{
+      <nav className="p-3 space-y-1 flex-1">
         {filteredNavigation.map((item) => {
           const isActive = location === item.href;
           return (
