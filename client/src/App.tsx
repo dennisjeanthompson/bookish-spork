@@ -144,16 +144,19 @@ function AuthenticatedLayout({ children }: { children: React.ReactNode }) {
 }
 
 function Router() {
-  const { isAuthenticated } = getAuthState();
+  const { isAuthenticated, user } = getAuthState();
 
   if (!isAuthenticated) {
     return <Login />;
   }
 
+  // Determine if user is an employee (not manager/admin)
+  const isEmployee = user?.role === 'employee';
+
   return (
     <Switch>
       <Route path="/">
-        {window.location.port === '5001' ? (
+        {isEmployee ? (
           <Redirect to="/mobile-dashboard" />
         ) : (
           <AuthenticatedLayout>
@@ -162,7 +165,7 @@ function Router() {
         )}
       </Route>
       <Route path="/schedule">
-        {window.location.port === '5001' ? (
+        {isEmployee ? (
           <MobileSchedule />
         ) : (
           <AuthenticatedLayout>
@@ -176,7 +179,7 @@ function Router() {
         </AuthenticatedLayout>
       </Route>
       <Route path="/payroll">
-        {window.location.port === '5001' ? (
+        {isEmployee ? (
           <MobilePayroll />
         ) : (
           <AuthenticatedLayout>
@@ -185,7 +188,7 @@ function Router() {
         )}
       </Route>
       <Route path="/notifications">
-        {window.location.port === '5001' ? (
+        {isEmployee ? (
           <MobileNotifications />
         ) : (
           <AuthenticatedLayout>
@@ -218,34 +221,31 @@ function Router() {
           <HoursReport />
         </AuthenticatedLayout>
       </Route>
-      {window.location.port === '5001' && (
-        <>
-          <Route path="/mobile-dashboard">
-            <MobileDashboard />
-          </Route>
-          <Route path="/mobile-schedule">
-            <MobileSchedule />
-          </Route>
-          <Route path="/mobile-payroll">
-            <MobilePayroll />
-          </Route>
-          <Route path="/mobile-notifications">
-            <MobileNotifications />
-          </Route>
-          <Route path="/mobile-time-off">
-            <MobileTimeOff />
-          </Route>
-          <Route path="/mobile-shift-trading">
-            <MobileShiftTrading />
-          </Route>
-          <Route path="/mobile-profile">
-            <MobileProfile />
-          </Route>
-          <Route path="/mobile-more">
-            <MobileMore />
-          </Route>
-        </>
-      )}
+      {/* Mobile routes - accessible to employees */}
+      <Route path="/mobile-dashboard">
+        <MobileDashboard />
+      </Route>
+      <Route path="/mobile-schedule">
+        <MobileSchedule />
+      </Route>
+      <Route path="/mobile-payroll">
+        <MobilePayroll />
+      </Route>
+      <Route path="/mobile-notifications">
+        <MobileNotifications />
+      </Route>
+      <Route path="/mobile-time-off">
+        <MobileTimeOff />
+      </Route>
+      <Route path="/mobile-shift-trading">
+        <MobileShiftTrading />
+      </Route>
+      <Route path="/mobile-profile">
+        <MobileProfile />
+      </Route>
+      <Route path="/mobile-more">
+        <MobileMore />
+      </Route>
       <Route>
         <AuthenticatedLayout>
           <NotFound />
