@@ -196,7 +196,9 @@ export default function Employees() {
       await apiRequest('POST', '/api/employees/bulk-activate', {
         employeeIds: selectedEmployees,
       });
+      queryClient.invalidateQueries({ queryKey: ['/api/hours/all-employees'] });
       queryClient.invalidateQueries({ queryKey: ['/api/employees'] });
+      queryClient.invalidateQueries({ queryKey: ['employee-stats'] });
       toast({
         title: 'Success',
         description: `${selectedEmployees.length} employees activated successfully`,
@@ -216,7 +218,9 @@ export default function Employees() {
       await apiRequest('POST', '/api/employees/bulk-deactivate', {
         employeeIds: selectedEmployees,
       });
+      queryClient.invalidateQueries({ queryKey: ['/api/hours/all-employees'] });
       queryClient.invalidateQueries({ queryKey: ['/api/employees'] });
+      queryClient.invalidateQueries({ queryKey: ['employee-stats'] });
       toast({
         title: 'Success',
         description: `${selectedEmployees.length} employees deactivated successfully`,
@@ -250,7 +254,9 @@ export default function Employees() {
       return response.json();
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/hours/all-employees'] });
       queryClient.invalidateQueries({ queryKey: ['/api/employees'] });
+      queryClient.invalidateQueries({ queryKey: ['employee-stats'] });
       toast({
         title: 'Success',
         description: 'Employee created successfully',
@@ -278,7 +284,9 @@ export default function Employees() {
       return response.json();
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/hours/all-employees'] });
       queryClient.invalidateQueries({ queryKey: ['/api/employees'] });
+      queryClient.invalidateQueries({ queryKey: ['employee-stats'] });
       toast({
         title: 'Success',
         description: 'Employee updated successfully',
@@ -306,7 +314,9 @@ export default function Employees() {
       return response.json();
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/hours/all-employees'] });
       queryClient.invalidateQueries({ queryKey: ['/api/employees'] });
+      queryClient.invalidateQueries({ queryKey: ['employee-stats'] });
       toast({
         title: 'Success',
         description: 'Employee deleted successfully',
@@ -332,6 +342,7 @@ export default function Employees() {
       return response.json();
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/hours/all-employees'] });
       queryClient.invalidateQueries({ queryKey: ['/api/employees'] });
       toast({
         title: 'Success',
