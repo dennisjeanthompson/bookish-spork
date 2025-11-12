@@ -473,40 +473,40 @@ export default function Employees() {
     <div className="p-6 space-y-6">
       {/* Employee Statistics Dashboard */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card>
+        <Card className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950 dark:to-orange-900 border-orange-200 dark:border-orange-800">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Employees</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium text-orange-900 dark:text-orange-100">Total Employees</CardTitle>
+            <Users className="h-4 w-4 text-orange-600 dark:text-orange-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{stats.totalEmployees}</div>
-            <p className="text-xs text-muted-foreground">
+            <div className="text-2xl font-bold text-orange-900 dark:text-orange-100">{stats.totalEmployees}</div>
+            <p className="text-xs text-orange-700 dark:text-orange-300">
               {stats.activeEmployees} active
             </p>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-950 dark:to-amber-900 border-amber-200 dark:border-amber-800">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Hours This Month</CardTitle>
-            <Clock className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium text-amber-900 dark:text-amber-100">Hours This Month</CardTitle>
+            <Clock className="h-4 w-4 text-amber-600 dark:text-amber-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{stats.totalHoursThisMonth.toFixed(1)}</div>
-            <p className="text-xs text-muted-foreground">
+            <div className="text-2xl font-bold text-amber-900 dark:text-amber-100">{stats.totalHoursThisMonth.toFixed(1)}</div>
+            <p className="text-xs text-amber-700 dark:text-amber-300">
               Total worked hours
             </p>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-950 dark:to-yellow-900 border-yellow-200 dark:border-yellow-800">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Payroll Cost</CardTitle>
-            <DollarSign className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium text-yellow-900 dark:text-yellow-100">Payroll Cost</CardTitle>
+            <DollarSign className="h-4 w-4 text-yellow-600 dark:text-yellow-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">₱{stats.totalPayrollThisMonth.toFixed(2)}</div>
-            <p className="text-xs text-muted-foreground">
+            <div className="text-2xl font-bold text-yellow-900 dark:text-yellow-100">₱{stats.totalPayrollThisMonth.toFixed(2)}</div>
+            <p className="text-xs text-yellow-700 dark:text-yellow-300">
               This month
             </p>
           </CardContent>
@@ -515,14 +515,14 @@ export default function Employees() {
 
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold">Employee Management</h2>
-          <p className="text-muted-foreground">
+          <h2 className="text-2xl font-bold text-orange-900 dark:text-orange-100">Employee Management</h2>
+          <p className="text-orange-700 dark:text-orange-300">
             Manage your team members and their details
           </p>
         </div>
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>
-            <Button onClick={() => setIsOpen(true)}>
+            <Button onClick={() => setIsOpen(true)} className="bg-orange-600 hover:bg-orange-700 text-white">
               <UserPlus className="mr-2 h-4 w-4" />
               Add Employee
             </Button>
@@ -719,10 +719,10 @@ export default function Employees() {
       </div>
 
       {/* Search and Filter Bar */}
-      <Card>
+      <Card className="border-orange-200 dark:border-orange-800">
         <CardHeader>
-          <CardTitle>Employee Directory</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-orange-900 dark:text-orange-100">Employee Directory</CardTitle>
+          <CardDescription className="text-orange-700 dark:text-orange-300">
             Search and filter employees by various criteria
           </CardDescription>
         </CardHeader>
