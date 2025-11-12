@@ -105,13 +105,13 @@ export default function Dashboard() {
   });
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-gradient-to-br from-orange-50/30 via-amber-50/20 to-yellow-50/30 min-h-screen">
       {isManagerRole ? (
         <>
           {/* Manager Dashboard */}
-          <div>
-            <h2 className="text-2xl font-bold text-foreground">Manager Dashboard</h2>
-            <p className="text-muted-foreground">Overview of today's operations</p>
+          <div className="mb-8">
+            <h1 className="text-3xl font-bold text-orange-900 dark:text-orange-100 mb-2">Manager Dashboard</h1>
+            <p className="text-base text-orange-700 dark:text-orange-300">Overview of today's operations</p>
           </div>
 
           <QuickStats />
