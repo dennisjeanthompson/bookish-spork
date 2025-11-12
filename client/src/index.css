@@ -69,10 +69,17 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: hsl(var(--background));
+    background: linear-gradient(to bottom right, hsl(45 25% 98%), hsl(42 30% 96%));
     color: hsl(var(--foreground));
     line-height: 1.6;
     font-size: 16px;
+    min-height: 100vh;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: linear-gradient(to bottom right, hsl(25 20% 10%), hsl(25 15% 8%));
+    }
   }
   
   h1, h2, h3, h4, h5, h6 {

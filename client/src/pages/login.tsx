@@ -63,19 +63,19 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <Card className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-orange-950 dark:via-amber-950 dark:to-yellow-950 p-4">
+      <Card className="w-full max-w-md shadow-2xl border-orange-200 dark:border-orange-800">
         <CardHeader className="text-center">
-          <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4">
-            <Coffee className="h-8 w-8 text-primary-foreground" />
+          <div className="w-16 h-16 bg-orange-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <Coffee className="h-8 w-8 text-white" />
           </div>
-          <CardTitle className="text-2xl font-bold">The Café</CardTitle>
-          <CardDescription>Smart Payroll & Employee Scheduling</CardDescription>
+          <CardTitle className="text-2xl font-bold text-orange-900 dark:text-orange-100">The Café</CardTitle>
+          <CardDescription className="text-orange-700 dark:text-orange-300">Smart Payroll & Employee Scheduling</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="username">Username</Label>
+              <Label htmlFor="username" className="text-orange-800 dark:text-orange-200">Username</Label>
               <Input
                 id="username"
                 type="text"
@@ -83,10 +83,11 @@ export default function Login() {
                 onChange={(e) => setUsername(e.target.value)}
                 required
                 data-testid="input-username"
+                className="border-orange-300 focus:border-orange-500 dark:border-orange-700"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-orange-800 dark:text-orange-200">Password</Label>
               <Input
                 id="password"
                 type="password"
@@ -94,11 +95,12 @@ export default function Login() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 data-testid="input-password"
+                className="border-orange-300 focus:border-orange-500 dark:border-orange-700"
               />
             </div>
             <Button
               type="submit"
-              className="w-full"
+              className="w-full bg-orange-600 hover:bg-orange-700 text-white"
               disabled={isLoading}
               data-testid="button-login"
             >
