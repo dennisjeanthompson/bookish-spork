@@ -60,10 +60,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Authentication middleware
   const requireAuth = (req: Request, res: Response, next: NextFunction) => {
+    console.log('🔐 Auth check - Session ID:', req.sessionID);
+    console.log('🔐 Auth check - Session exists:', !!req.session);
+    console.log('🔐 Auth check - Session user:', req.session?.user);
+    
     const user = getAuthenticatedUser(req);
     if (!user) {
+      console.log('❌ Authentication failed - no user in session');
       return res.status(401).json({ message: "Authentication required" });
     }
+    console.log('✅ Authentication successful for user:', user.username, 'role:', user.role);
     // Attach user to request object for easier access
     req.user = user;
     next();
@@ -112,15 +118,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Session configuration
   app.use(session({
-    secret: process.env.SESSION_SECRET || 'default-secret-key',
+    secret: process.env.SESSION_SECRET || 'default-secret-key-change-in-production',
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: process.env.NODE_ENV === 'production',
+      secure: process.env.NODE_ENV === 'production', // HTTPS only in production
       httpOnly: true,
-      sameSite: 'lax',
-      maxAge: 24 * 60 * 60 * 1000 // 24 hours
-    }
+      sameSite: 'lax', // Same domain, so 'lax' is fine
+      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+      path: '/' // Ensure cookie is available for all paths
+    },
+    proxy: process.env.NODE_ENV === 'production' // Trust proxy in production (Render uses reverse proxy)
   }));
 
   // Setup check endpoint (no auth required)
@@ -314,13 +322,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       req.session.user = authUser;
 
+      console.log('✅ Login successful - setting session for user:', user.username);
+      console.log('   Session ID:', req.sessionID);
+      console.log('   Auth user:', authUser);
+
       // Save the session
       req.session.save((err) => {
         if (err) {
-          console.error('Session save error:', err);
+          console.error('❌ Session save error:', err);
           return res.status(500).json({ message: 'Failed to save session' });
         }
 
+        console.log('✅ Session saved successfully');
+        
         // Remove password from response
         const { password: _, ...userWithoutPassword } = user;
         res.json({
