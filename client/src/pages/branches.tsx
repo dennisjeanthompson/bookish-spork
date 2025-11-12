@@ -134,11 +134,11 @@ export default function Branches() {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6 bg-gray-50 min-h-screen">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-foreground">Branches</h2>
-          <p className="text-muted-foreground">Manage café locations</p>
+          <h2 className="text-2xl font-bold text-gray-900">Branches</h2>
+          <p className="text-gray-600">Manage café locations</p>
         </div>
         
         {isManagerRole && (
@@ -259,23 +259,23 @@ export default function Branches() {
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
-                <div className="flex items-center text-sm text-muted-foreground">
+                <div className="flex items-center text-sm text-gray-600">
                   <MapPin className="h-4 w-4 mr-2" />
                   {branch.address}
                 </div>
 
                 {branch.phone && (
-                  <div className="flex items-center text-sm text-muted-foreground">
+                  <div className="flex items-center text-sm text-gray-600">
                     <Phone className="h-4 w-4 mr-2" />
                     {branch.phone}
                   </div>
                 )}
 
-                <div className="flex items-center justify-between pt-3 border-t border-border">
+                <div className="flex items-center justify-between pt-3 border-t border-gray-200">
                   <span className={`px-2 py-1 rounded text-xs ${
                     branch.isActive
-                      ? 'bg-accent text-accent-foreground'
-                      : 'bg-muted text-muted-foreground'
+                      ? 'bg-green-100 text-green-700'
+                      : 'bg-gray-100 text-gray-600'
                   }`}>
                     {branch.isActive ? 'Active' : 'Inactive'}
                   </span>

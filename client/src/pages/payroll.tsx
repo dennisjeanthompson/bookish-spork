@@ -244,11 +244,11 @@ export default function Payroll() {
   }
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-foreground">Payroll Summary</h2>
-          <p className="text-muted-foreground">
+          <h2 className="text-2xl font-bold text-gray-900">Payroll Summary</h2>
+          <p className="text-gray-600">
             View your pay details, cutoff periods, and computation breakdown
           </p>
         </div>
@@ -306,7 +306,7 @@ export default function Payroll() {
                     </div>
                   </div>
                 ) : (
-                  <p className="text-muted-foreground">No active payroll period</p>
+                  <p className="text-gray-600">No active payroll period</p>
                 )}
               </CardContent>
             </Card>
@@ -316,45 +316,45 @@ export default function Payroll() {
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Total Hours</CardTitle>
-                    <Clock className="h-4 w-4 text-muted-foreground" />
+                    <CardTitle className="text-sm font-medium text-gray-900">Total Hours</CardTitle>
+                    <Clock className="h-4 w-4 text-gray-400" />
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold">{totalHours.toFixed(1)}</div>
-                    <p className="text-xs text-muted-foreground">This period</p>
+                    <div className="text-2xl font-bold text-gray-900">{totalHours.toFixed(1)}</div>
+                    <p className="text-xs text-gray-600">This period</p>
                   </CardContent>
                 </Card>
 
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Gross Pay</CardTitle>
-                    <DollarSign className="h-4 w-4 text-muted-foreground" />
+                    <CardTitle className="text-sm font-medium text-gray-900">Gross Pay</CardTitle>
+                    <DollarSign className="h-4 w-4 text-gray-400" />
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold">₱{totalGrossPay.toFixed(2)}</div>
-                    <p className="text-xs text-muted-foreground">Before deductions</p>
+                    <div className="text-2xl font-bold text-gray-900">₱{totalGrossPay.toFixed(2)}</div>
+                    <p className="text-xs text-gray-600">Before deductions</p>
                   </CardContent>
                 </Card>
 
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Deductions</CardTitle>
-                    <Calculator className="h-4 w-4 text-muted-foreground" />
+                    <CardTitle className="text-sm font-medium text-gray-900">Deductions</CardTitle>
+                    <Calculator className="h-4 w-4 text-gray-400" />
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold text-red-600">-₱{totalDeductions.toFixed(2)}</div>
-                    <p className="text-xs text-muted-foreground">Taxes & other deductions</p>
+                    <p className="text-xs text-gray-600">Taxes & other deductions</p>
                   </CardContent>
                 </Card>
 
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Net Pay</CardTitle>
-                    <DollarSign className="h-4 w-4 text-muted-foreground" />
+                    <CardTitle className="text-sm font-medium text-gray-900">Net Pay</CardTitle>
+                    <DollarSign className="h-4 w-4 text-gray-400" />
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold text-green-600">₱{totalNetPay.toFixed(2)}</div>
-                    <p className="text-xs text-muted-foreground">Take home pay</p>
+                    <p className="text-xs text-gray-600">Take home pay</p>
                   </CardContent>
                 </Card>
               </div>
@@ -375,29 +375,29 @@ export default function Payroll() {
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="space-y-2">
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Regular Hours:</span>
-                        <span className="font-medium">{String(entry.regularHours)}h</span>
+                        <span className="text-sm text-gray-600">Regular Hours:</span>
+                        <span className="font-medium text-gray-900">{String(entry.regularHours)}h</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Overtime Hours:</span>
-                        <span className="font-medium">{String(entry.overtimeHours)}h</span>
+                        <span className="text-sm text-gray-600">Overtime Hours:</span>
+                        <span className="font-medium text-gray-900">{String(entry.overtimeHours)}h</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Total Hours:</span>
-                        <span className="font-medium">{String(entry.totalHours)}h</span>
+                        <span className="text-sm text-gray-600">Total Hours:</span>
+                        <span className="font-medium text-gray-900">{String(entry.totalHours)}h</span>
                       </div>
                     </div>
                     <div className="space-y-2">
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Gross Pay:</span>
-                        <span className="font-medium">₱{parseFloat(String(entry.grossPay || 0)).toFixed(2)}</span>
+                        <span className="text-sm text-gray-600">Gross Pay:</span>
+                        <span className="font-medium text-gray-900">₱{parseFloat(String(entry.grossPay || 0)).toFixed(2)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Deductions:</span>
+                        <span className="text-sm text-gray-600">Deductions:</span>
                         <span className="font-medium text-red-600">-₱{parseFloat(String(entry.deductions || 0)).toFixed(2)}</span>
                       </div>
                       <div className="flex justify-between font-semibold">
-                        <span>Net Pay:</span>
+                        <span className="text-gray-900">Net Pay:</span>
                         <span className="text-green-600">₱{parseFloat(String(entry.netPay || 0)).toFixed(2)}</span>
                       </div>
                     </div>
@@ -469,7 +469,7 @@ export default function Payroll() {
             {payrollEntries.length === 0 && (
               <Card>
                 <CardContent className="p-8 text-center">
-                  <p className="text-muted-foreground">No payroll data available for the current period</p>
+                  <p className="text-gray-600">No payroll data available for the current period</p>
                 </CardContent>
               </Card>
             )}
@@ -484,12 +484,12 @@ export default function Payroll() {
             <CardContent>
               <div className="space-y-4">
                 {payrollEntries.map((entry: PayrollEntry) => (
-                  <div key={entry.id} className="flex items-center justify-between p-4 border rounded-lg">
+                  <div key={entry.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
                     <div>
-                      <p className="font-medium">
+                      <p className="font-medium text-gray-900">
                         Period ending {format(new Date(entry.createdAt), "MMM d, yyyy")}
                       </p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-gray-600">
                         {String(entry.totalHours)}h • ₱{parseFloat(String(entry.netPay || 0)).toFixed(2)} net pay
                       </p>
                     </div>
@@ -509,7 +509,7 @@ export default function Payroll() {
                 ))}
 
                 {payrollEntries.length === 0 && (
-                  <p className="text-center text-muted-foreground py-8">
+                  <p className="text-center text-gray-600 py-8">
                     No payroll history available
                   </p>
                 )}
@@ -527,18 +527,18 @@ export default function Payroll() {
               <CardContent>
                 <div className="grid gap-4 md:grid-cols-3">
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-primary">{totalHours.toFixed(1)}</p>
-                    <p className="text-sm text-muted-foreground">Total Hours Worked</p>
+                    <p className="text-2xl font-bold text-orange-500">{totalHours.toFixed(1)}</p>
+                    <p className="text-sm text-gray-600">Total Hours Worked</p>
                   </div>
                   <div className="text-center">
                     <p className="text-2xl font-bold text-green-600">₱{totalNetPay.toFixed(2)}</p>
-                    <p className="text-sm text-muted-foreground">Total Net Pay</p>
+                    <p className="text-sm text-gray-600">Total Net Pay</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-muted-foreground">
+                    <p className="text-2xl font-bold text-gray-900">
                       {payrollEntries.length}
                     </p>
-                    <p className="text-sm text-muted-foreground">Pay Periods</p>
+                    <p className="text-sm text-gray-600">Pay Periods</p>
                   </div>
                 </div>
               </CardContent>
@@ -551,15 +551,15 @@ export default function Payroll() {
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex justify-between">
-                    <span>Gross Pay</span>
-                    <span className="font-medium">₱{totalGrossPay.toFixed(2)}</span>
+                    <span className="text-gray-900">Gross Pay</span>
+                    <span className="font-medium text-gray-900">₱{totalGrossPay.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-red-600">
                     <span>Deductions</span>
                     <span>-₱{totalDeductions.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between font-semibold text-lg border-t pt-2">
-                    <span>Net Pay</span>
+                  <div className="flex justify-between font-semibold text-lg border-t border-gray-200 pt-2">
+                    <span className="text-gray-900">Net Pay</span>
                     <span className="text-green-600">₱{totalNetPay.toFixed(2)}</span>
                   </div>
                 </div>

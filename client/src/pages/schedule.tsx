@@ -353,11 +353,11 @@ export default function Schedule() {
   ) : [];
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-foreground">Schedule</h2>
-          <p className="text-muted-foreground">
+          <h2 className="text-2xl font-bold text-gray-900">Schedule</h2>
+          <p className="text-gray-600">
             {isManagerRole ? "Manage employee schedules" : "View and manage your schedule"}
           </p>
         </div>
@@ -388,9 +388,9 @@ export default function Schedule() {
         </TabsList>
 
         <TabsContent value="schedule">
-          <div className="bg-card rounded-lg border">
+          <div className="bg-white rounded-lg border-gray-200 border shadow-sm">
             <div className="p-4 flex justify-between items-center">
-              <h3 className="text-lg font-medium">
+              <h3 className="text-lg font-semibold text-gray-900">
                 {isManagerRole ? "Team Schedule" : "My Schedule"}
               </h3>
               {isManagerRole && (
@@ -426,8 +426,8 @@ export default function Schedule() {
         <TabsContent value="timeoff">
           <div className="grid gap-6 md:grid-cols-3">
             <div className="md:col-span-2">
-              <div className="bg-card rounded-lg border p-4">
-                <h3 className="text-lg font-medium mb-4">Request Time Off</h3>
+              <div className="bg-white rounded-lg border-gray-200 border shadow-sm p-4">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Request Time Off</h3>
                 <TimeOffRequest
                   onRequestSubmit={handleTimeOffRequest}
                   timeOffBalance={timeOffBalance}
@@ -435,79 +435,79 @@ export default function Schedule() {
               </div>
             </div>
             <div className="space-y-4">
-              <div className="bg-card rounded-lg border p-4">
-                <h3 className="font-medium mb-3">Upcoming Time Off</h3>
+              <div className="bg-white rounded-lg border-gray-200 border shadow-sm p-4">
+                <h3 className="font-semibold text-gray-900 mb-3">Upcoming Time Off</h3>
                 {upcomingTimeOff.length > 0 ? (
                   upcomingTimeOff.map((event) => (
                     <div
                       key={event.id}
-                      className="flex items-center justify-between py-2 border-b last:border-b-0"
+                      className="flex items-center justify-between py-2 border-b border-gray-200 last:border-b-0"
                     >
                       <div>
-                        <p className="font-medium">
+                        <p className="font-medium text-gray-900">
                           {format(new Date(event.start), "MMM d")} -{" "}
                           {format(new Date(event.end), "MMM d, yyyy")}
                         </p>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-gray-600">
                           {event.title}
                         </p>
                       </div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-sm text-gray-600">
                         {event.status === "approved" ? (
-                          <span className="text-green-500">Approved</span>
+                          <span className="text-green-600">Approved</span>
                         ) : event.status === "rejected" ? (
-                          <span className="text-red-500">Rejected</span>
+                          <span className="text-red-600">Rejected</span>
                         ) : (
-                          <span className="text-yellow-500">Pending</span>
+                          <span className="text-yellow-600">Pending</span>
                         )}
                       </div>
                     </div>
                   ))
                 ) : (
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-gray-600">
                     No upcoming time off scheduled
                   </p>
                 )}
               </div>
 
-              <div className="bg-card rounded-lg border p-4">
-                <h3 className="font-medium mb-3">Team Time Off</h3>
+              <div className="bg-white rounded-lg border-gray-200 border shadow-sm p-4">
+                <h3 className="font-semibold text-gray-900 mb-3">Team Time Off</h3>
                 {isManagerRole ? (
                   <>
                     {teamTimeOff.length > 0 ? (
                       teamTimeOff.map((event) => (
                         <div
                           key={event.id}
-                          className="flex items-center justify-between py-2 border-b last:border-b-0"
+                          className="flex items-center justify-between py-2 border-b border-gray-200 last:border-b-0"
                         >
                           <div>
-                            <p className="font-medium">
+                            <p className="font-medium text-gray-900">
                               {event.employeeName}
                             </p>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sm text-gray-600">
                               {format(new Date(event.start), "MMM d")} -{" "}
                               {format(new Date(event.end), "MMM d")}
                             </p>
                           </div>
-                          <div className="text-sm text-muted-foreground">
+                          <div className="text-sm text-gray-600">
                             {event.status === "approved" ? (
-                              <span className="text-green-500">Approved</span>
+                              <span className="text-green-600">Approved</span>
                             ) : event.status === "rejected" ? (
-                              <span className="text-red-500">Rejected</span>
+                              <span className="text-red-600">Rejected</span>
                             ) : (
-                              <span className="text-yellow-500">Pending</span>
+                              <span className="text-yellow-600">Pending</span>
                             )}
                           </div>
                         </div>
                       ))
                     ) : (
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-gray-600">
                         No team time off scheduled
                       </p>
                     )}
                   </>
                 ) : (
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-gray-600">
                     Only managers can view team time off
                   </p>
                 )}
@@ -518,21 +518,21 @@ export default function Schedule() {
 
         {isManagerRole && (
           <TabsContent value="requests">
-            <div className="bg-card rounded-lg border p-4">
-              <h3 className="text-lg font-medium mb-4">Pending Requests</h3>
+            <div className="bg-white rounded-lg border-gray-200 border shadow-sm p-4">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Pending Requests</h3>
               {pendingRequests.length > 0 ? (
                 <div className="space-y-4">
                   {pendingRequests.map((event) => (
                     <div
                       key={event.id}
-                      className="border rounded-lg p-4 space-y-2"
+                      className="border border-gray-200 rounded-lg p-4 space-y-2"
                     >
                       <div className="flex justify-between">
                         <div>
-                          <h4 className="font-medium">
+                          <h4 className="font-semibold text-gray-900">
                             {event.employeeName} - {event.title}
                           </h4>
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-sm text-gray-600">
                             {format(new Date(event.start), "MMM d, yyyy")} -{" "}
                             {format(new Date(event.end), "MMM d, yyyy")}
                           </p>
@@ -589,7 +589,7 @@ export default function Schedule() {
                   ))}
                 </div>
               ) : (
-                <p className="text-muted-foreground">
+                <p className="text-gray-600">
                   No pending requests at this time
                 </p>
               )}
@@ -599,9 +599,9 @@ export default function Schedule() {
 
         {isManagerRole && (
           <TabsContent value="clockinout">
-            <div className="bg-card rounded-lg border p-4">
-              <h3 className="text-lg font-medium mb-4">Clock In/Out Management</h3>
-              <p className="text-sm text-muted-foreground mb-4">
+            <div className="bg-white rounded-lg border-gray-200 border shadow-sm p-4">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Clock In/Out Management</h3>
+              <p className="text-sm text-gray-600 mb-4">
                 Manage employee clock in and clock out times for today's shifts
               </p>
 
@@ -611,19 +611,19 @@ export default function Schedule() {
                     .filter(e => e.type === 'shift' && isSameDay(new Date(e.start), new Date()))
                     .sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
                     .map((shift) => (
-                      <Card key={shift.id} className="p-4">
+                      <Card key={shift.id} className="p-4 bg-white border-gray-200">
                         <div className="flex items-center justify-between">
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
-                              <h4 className="font-medium">{shift.employeeName}</h4>
-                              <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
+                              <h4 className="font-semibold text-gray-900">{shift.employeeName}</h4>
+                              <span className="text-xs px-2 py-1 rounded-full bg-orange-100 text-orange-700">
                                 {shift.title}
                               </span>
                             </div>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sm text-gray-600">
                               {format(new Date(shift.start), "MMM d, yyyy")} • {format(new Date(shift.start), "h:mm a")} - {format(new Date(shift.end), "h:mm a")}
                             </p>
-                            <p className="text-xs text-muted-foreground mt-1">
+                            <p className="text-xs text-gray-600 mt-1">
                               Status: <span className="font-medium capitalize">{shift.status}</span>
                             </p>
                           </div>
@@ -663,8 +663,8 @@ export default function Schedule() {
                 </div>
               ) : (
                 <div className="text-center py-8">
-                  <Clock className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                  <p className="text-muted-foreground">
+                  <Clock className="h-12 w-12 mx-auto text-gray-400 mb-4" />
+                  <p className="text-gray-600">
                     No shifts scheduled for today.
                   </p>
                 </div>

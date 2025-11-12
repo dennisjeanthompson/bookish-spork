@@ -212,11 +212,11 @@ export default function PayrollManagement() {
   const entries = entriesData?.entries || [];
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-foreground">Payroll Management</h2>
-          <p className="text-muted-foreground">
+          <h2 className="text-2xl font-bold text-gray-900">Payroll Management</h2>
+          <p className="text-gray-600">
             Manage payroll periods, process payments, and approve entries
           </p>
         </div>
@@ -294,9 +294,9 @@ export default function PayrollManagement() {
                 </div>
               ) : periods.length === 0 ? (
                 <div className="text-center py-8">
-                  <Calendar className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                  <h3 className="text-lg font-medium mb-2">No Payroll Periods</h3>
-                  <p className="text-muted-foreground mb-4">
+                  <Calendar className="h-12 w-12 mx-auto text-gray-400 mb-4" />
+                  <h3 className="text-lg font-medium text-gray-900 mb-2">No Payroll Periods</h3>
+                  <p className="text-gray-600 mb-4">
                     Create your first payroll period to get started
                   </p>
                   <Button onClick={() => setIsCreateDialogOpen(true)}>
@@ -307,12 +307,12 @@ export default function PayrollManagement() {
               ) : (
                 <div className="space-y-4">
                   {periods.map((period: PayrollPeriod) => (
-                    <Card key={period.id} className="border-2">
+                    <Card key={period.id} className="border-2 border-gray-200">
                       <CardContent className="p-6">
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-2">
-                              <h3 className="text-lg font-semibold">
+                              <h3 className="text-lg font-semibold text-gray-900">
                                 {format(new Date(period.startDate), "MMM d, yyyy")} -{" "}
                                 {format(new Date(period.endDate), "MMM d, yyyy")}
                               </h3>
@@ -328,15 +328,15 @@ export default function PayrollManagement() {
                             <div className="grid grid-cols-2 gap-4 mt-4">
                               {period.totalHours && (
                                 <div>
-                                  <p className="text-sm text-muted-foreground">Total Hours</p>
-                                  <p className="text-xl font-semibold">
+                                  <p className="text-sm text-gray-600">Total Hours</p>
+                                  <p className="text-xl font-semibold text-gray-900">
                                     {parseFloat(String(period.totalHours)).toFixed(1)}h
                                   </p>
                                 </div>
                               )}
                               {period.totalPay && (
                                 <div>
-                                  <p className="text-sm text-muted-foreground">Total Pay</p>
+                                  <p className="text-sm text-gray-600">Total Pay</p>
                                   <p className="text-xl font-semibold text-green-600">
                                     ₱{parseFloat(String(period.totalPay)).toFixed(2)}
                                   </p>
@@ -392,21 +392,21 @@ export default function PayrollManagement() {
             <CardContent>
               {!selectedPeriod ? (
                 <div className="text-center py-8">
-                  <Users className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                  <h3 className="text-lg font-medium mb-2">No Period Selected</h3>
-                  <p className="text-muted-foreground">
+                  <Users className="h-12 w-12 mx-auto text-gray-400 mb-4" />
+                  <h3 className="text-lg font-medium text-gray-900 mb-2">No Period Selected</h3>
+                  <p className="text-gray-600">
                     Select a payroll period from the "Payroll Periods" tab to view entries
                   </p>
                 </div>
               ) : entriesLoading ? (
                 <div className="flex items-center justify-center py-8">
-                  <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                  <Loader2 className="h-8 w-8 animate-spin text-orange-500" />
                 </div>
               ) : entries.length === 0 ? (
                 <div className="text-center py-8">
-                  <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                  <h3 className="text-lg font-medium mb-2">No Entries</h3>
-                  <p className="text-muted-foreground mb-4">
+                  <FileText className="h-12 w-12 mx-auto text-gray-400 mb-4" />
+                  <h3 className="text-lg font-medium text-gray-900 mb-2">No Entries</h3>
+                  <p className="text-gray-600 mb-4">
                     No payroll entries found for this period
                   </p>
                   {selectedPeriod.status === 'open' && (

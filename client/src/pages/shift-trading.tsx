@@ -14,11 +14,11 @@ export default function ShiftTrading() {
   });
 
   return (
-    <div className="p-6">
+    <div className="p-6 bg-gray-50 min-h-screen">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-foreground">Shift Trading</h2>
-          <p className="text-muted-foreground">Exchange shifts with your colleagues</p>
+          <h2 className="text-2xl font-bold text-gray-900">Shift Trading</h2>
+          <p className="text-gray-600">Exchange shifts with your colleagues</p>
         </div>
         
         <Button data-testid="button-post-shift">
@@ -48,7 +48,7 @@ export default function ShiftTrading() {
                   />
                 ))
               ) : (
-                <p className="text-muted-foreground text-center py-4">
+                <p className="text-gray-600 text-center py-4">
                   No available shifts to trade
                 </p>
               )}
@@ -73,7 +73,7 @@ export default function ShiftTrading() {
                   />
                 ))
               ) : (
-                <p className="text-muted-foreground text-center py-4">
+                <p className="text-gray-600 text-center py-4">
                   You haven't posted any shifts for trade
                 </p>
               )}

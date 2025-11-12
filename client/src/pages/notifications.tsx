@@ -133,11 +133,11 @@ export default function Notifications() {
   }
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-foreground">Notifications</h2>
-          <p className="text-muted-foreground">
+          <h2 className="text-2xl font-bold text-gray-900">Notifications</h2>
+          <p className="text-gray-600">
             Stay updated with payroll alerts, schedule changes, and announcements
           </p>
         </div>
@@ -166,13 +166,13 @@ export default function Notifications() {
             {notifications.length === 0 ? (
               <Card>
                 <CardContent className="p-8 text-center">
-                  <Bell className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground">No notifications yet</p>
+                  <Bell className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-600">No notifications yet</p>
                 </CardContent>
               </Card>
             ) : (
               notifications.map((notification: Notification) => (
-                <Card key={notification.id} className={`${!notification.isRead ? 'border-primary' : ''}`}>
+                <Card key={notification.id} className={`${!notification.isRead ? 'border-orange-500' : 'border-gray-200'}`}>
                   <CardContent className="p-4">
                     <div className="flex items-start justify-between">
                       <div className="flex items-start space-x-3 flex-1">
@@ -181,20 +181,20 @@ export default function Notifications() {
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-1">
-                            <h3 className={`font-medium ${!notification.isRead ? 'text-foreground' : 'text-muted-foreground'}`}>
+                            <h3 className={`font-medium ${!notification.isRead ? 'text-gray-900' : 'text-gray-600'}`}>
                               {notification.title}
                             </h3>
                             <Badge className={`text-xs ${getNotificationBadgeColor(notification.type)}`}>
                               {notification.type}
                             </Badge>
                             {!notification.isRead && (
-                              <div className="w-2 h-2 bg-primary rounded-full"></div>
+                              <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                             )}
                           </div>
-                          <p className={`text-sm mb-2 ${!notification.isRead ? 'text-foreground' : 'text-muted-foreground'}`}>
+                          <p className={`text-sm mb-2 ${!notification.isRead ? 'text-gray-900' : 'text-gray-600'}`}>
                             {notification.message}
                           </p>
-                          <p className="text-xs text-muted-foreground">
+                          <p className="text-xs text-gray-600">
                             {format(new Date(notification.createdAt), "MMM d, yyyy 'at' h:mm a")}
                           </p>
                         </div>

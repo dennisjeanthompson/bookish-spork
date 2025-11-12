@@ -355,12 +355,12 @@ export default function Reports() {
   ];
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-foreground">Reports & Analytics</h2>
-          <p className="text-muted-foreground">Comprehensive business insights and reporting</p>
+          <h2 className="text-2xl font-bold text-gray-900">Reports & Analytics</h2>
+          <p className="text-gray-600">Comprehensive business insights and reporting</p>
         </div>
         <Button className="flex items-center space-x-2">
           <Download className="h-4 w-4" />
@@ -373,16 +373,16 @@ export default function Reports() {
         {reportCards.map((card, index) => (
           <Card key={index}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">{card.title}</CardTitle>
-              <card.icon className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-gray-900">{card.title}</CardTitle>
+              <card.icon className="h-4 w-4 text-gray-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{card.value}</div>
-              <p className="text-xs text-muted-foreground">{card.description}</p>
+              <div className="text-2xl font-bold text-gray-900">{card.value}</div>
+              <p className="text-xs text-gray-600">{card.description}</p>
               <div className="flex items-center mt-2">
                 <TrendingUp className="h-3 w-3 text-green-500 mr-1" />
                 <span className="text-xs text-green-500">{card.change}</span>
-                <span className="text-xs text-muted-foreground ml-1">from last month</span>
+                <span className="text-xs text-gray-600 ml-1">from last month</span>
               </div>
             </CardContent>
           </Card>
@@ -402,16 +402,16 @@ export default function Reports() {
             {quickReports.map((report, index) => (
               <div
                 key={index}
-                className="p-4 border border-border rounded-lg hover:bg-muted/50 transition-colors"
+                className="p-4 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors bg-white"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <report.icon className="h-5 w-5 text-primary" />
+                    <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                      <report.icon className="h-5 w-5 text-orange-500" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-medium text-sm">{report.title}</h3>
-                      <p className="text-xs text-muted-foreground mt-1">{report.description}</p>
+                      <h3 className="font-medium text-sm text-gray-900">{report.title}</h3>
+                      <p className="text-xs text-gray-600 mt-1">{report.description}</p>
                     </div>
                   </div>
                 </div>
@@ -451,16 +451,16 @@ export default function Reports() {
             <div className="space-y-4">
               {payrollData?.recentActivity?.length > 0 ? (
                 payrollData.recentActivity.map((activity: any, index: number) => (
-                  <div key={index} className="flex items-center justify-between p-3 bg-muted/30 rounded-lg">
+                  <div key={index} className="flex items-center justify-between p-3 bg-gray-100 rounded-lg">
                     <div>
-                      <p className="font-medium text-sm">{activity.description}</p>
-                      <p className="text-xs text-muted-foreground">{activity.date}</p>
+                      <p className="font-medium text-sm text-gray-900">{activity.description}</p>
+                      <p className="text-xs text-gray-600">{activity.date}</p>
                     </div>
-                    <span className="text-sm font-medium">${activity.amount}</span>
+                    <span className="text-sm font-medium text-gray-900">${activity.amount}</span>
                   </div>
                 ))
               ) : (
-                <p className="text-muted-foreground text-center py-4">No recent payroll activity</p>
+                <p className="text-gray-600 text-center py-4">No recent payroll activity</p>
               )}
             </div>
           </CardContent>
@@ -474,13 +474,13 @@ export default function Reports() {
             <div className="space-y-4">
               {attendanceData?.trends?.length > 0 ? (
                 attendanceData.trends.map((trend: any, index: number) => (
-                  <div key={index} className="flex items-center justify-between p-3 bg-muted/30 rounded-lg">
+                  <div key={index} className="flex items-center justify-between p-3 bg-gray-100 rounded-lg">
                     <div>
-                      <p className="font-medium text-sm">{trend.period}</p>
-                      <p className="text-xs text-muted-foreground">{trend.description}</p>
+                      <p className="font-medium text-sm text-gray-900">{trend.period}</p>
+                      <p className="text-xs text-gray-600">{trend.description}</p>
                     </div>
                     <div className="text-right">
-                      <span className="text-sm font-medium">{trend.hours}h</span>
+                      <span className="text-sm font-medium text-gray-900">{trend.hours}h</span>
                       <div className="flex items-center">
                         <TrendingUp className="h-3 w-3 text-green-500 mr-1" />
                         <span className="text-xs text-green-500">{trend.change}</span>
@@ -489,7 +489,7 @@ export default function Reports() {
                   </div>
                 ))
               ) : (
-                <p className="text-muted-foreground text-center py-4">No attendance data available</p>
+                <p className="text-gray-600 text-center py-4">No attendance data available</p>
               )}
             </div>
           </CardContent>
