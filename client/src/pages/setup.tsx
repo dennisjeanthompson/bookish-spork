@@ -127,25 +127,25 @@ export default function Setup() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-orange-950 dark:via-amber-950 dark:to-yellow-950 flex items-center justify-center p-4">
-      <Card className="w-full max-w-2xl shadow-2xl border-orange-200 dark:border-orange-800">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex items-center justify-center p-4">
+      <Card className="w-full max-w-2xl border-0 shadow-xl">
         <CardHeader className="text-center space-y-2">
           <div className="flex justify-center mb-4">
-            <div className="bg-orange-600 text-white p-4 rounded-full shadow-lg">
+            <div className="bg-gradient-to-br from-orange-500 to-orange-600 text-white p-4 rounded-2xl shadow-md">
               <Coffee className="h-12 w-12" />
             </div>
           </div>
-          <CardTitle className="text-3xl font-bold text-orange-900 dark:text-orange-100">Welcome to The Cafe</CardTitle>
-          <CardDescription className="text-lg text-orange-700 dark:text-orange-300">
+          <CardTitle className="text-3xl font-semibold text-gray-900 dark:text-gray-100">Welcome to The Café</CardTitle>
+          <CardDescription className="text-lg text-gray-600 dark:text-gray-400">
             Let's set up your cafe management system
           </CardDescription>
           <div className="flex justify-center gap-2 pt-4">
-            <div className={`h-2 w-16 rounded-full ${step >= 1 ? 'bg-orange-600' : 'bg-orange-200 dark:bg-orange-800'}`} />
-            <div className={`h-2 w-16 rounded-full ${step >= 2 ? 'bg-orange-600' : 'bg-orange-200 dark:bg-orange-800'}`} />
+            <div className={`h-2 w-16 rounded-full ${step >= 1 ? 'bg-orange-500' : 'bg-gray-200 dark:bg-gray-700'}`} />
+            <div className={`h-2 w-16 rounded-full ${step >= 2 ? 'bg-orange-500' : 'bg-gray-200 dark:bg-gray-700'}`} />
           </div>
           
           {/* Login link for existing users/employees */}
-          <div className="pt-4 border-t border-orange-200 dark:border-orange-800">
+          <div className="pt-4 border-t border-gray-200 dark:border-gray-800">
             <button
               onClick={() => setShowLogin(true)}
               className="text-sm text-orange-600 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-300 flex items-center justify-center gap-2 mx-auto transition-colors"

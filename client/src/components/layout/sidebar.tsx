@@ -62,32 +62,32 @@ export default function Sidebar() {
   );
 
   return (
-    <div className="w-64 bg-white dark:bg-orange-950 border-r border-orange-100 dark:border-orange-900 shadow-sm flex flex-col">
+    <div className="w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 flex flex-col">
       {/* Logo */}
-      <div className="p-6 border-b border-orange-100 dark:border-orange-900">
+      <div className="p-6 border-b border-gray-200 dark:border-gray-800">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-md">
+          <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-sm">
             <Coffee className="h-6 w-6 text-white coffee-steam" />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-orange-900 dark:text-orange-100">The Café</h1>
-            <p className="text-sm text-orange-600 dark:text-orange-400">Smart Payroll System</p>
+            <h1 className="text-xl font-semibold text-gray-900 dark:text-gray-100">The Café</h1>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Smart Payroll System</p>
           </div>
         </div>
       </div>
       
       {/* Navigation */}
-      <nav className="p-4 space-y-1 flex-1">
+      <nav className="p-3 space-y-1 flex-1">{
         {filteredNavigation.map((item) => {
           const isActive = location === item.href;
           return (
             <Link key={item.name} href={item.href}>
               <a
                 className={cn(
-                  "flex items-center space-x-3 px-4 py-3 rounded-xl transition-all font-medium",
+                  "flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-all font-medium text-sm",
                   isActive
-                    ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-md"
-                    : "hover:bg-orange-50 dark:hover:bg-orange-900 text-orange-700 dark:text-orange-300"
+                    ? "bg-orange-500 text-white shadow-sm"
+                    : "hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
                 )}
                 data-testid={`nav-${item.href.slice(1) || 'dashboard'}`}
               >
@@ -100,23 +100,23 @@ export default function Sidebar() {
       </nav>
 
       {/* Mini Calendar */}
-      <div className="p-4 border-t border-orange-100 dark:border-orange-900">
+      <div className="p-4 border-t border-gray-200 dark:border-gray-800">
         <MiniCalendar />
       </div>
 
       {/* User Profile */}
-      <div className="p-4 bg-orange-50 dark:bg-orange-900/30 border-t border-orange-100 dark:border-orange-900">
+      <div className="p-4 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800">
         <div className="flex items-center space-x-3 mb-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-md">
+          <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-sm">
             <span className="text-white font-semibold text-sm">
               {currentUser && getInitials(currentUser.firstName, currentUser.lastName)}
             </span>
           </div>
           <div className="flex-1">
-            <p className="font-semibold text-sm text-orange-900 dark:text-orange-100" data-testid="text-user-name">
+            <p className="font-semibold text-sm text-gray-900 dark:text-gray-100" data-testid="text-user-name">
               {currentUser?.firstName} {currentUser?.lastName}
             </p>
-            <p className="text-xs text-orange-600 dark:text-orange-400" data-testid="text-user-role">
+            <p className="text-xs text-gray-500 dark:text-gray-400" data-testid="text-user-role">
               {currentUser?.role === "manager" ? "Manager" : "Employee"}
             </p>
           </div>
@@ -125,7 +125,7 @@ export default function Sidebar() {
             size="sm"
             onClick={handleLogout}
             data-testid="button-logout"
-            className="hover:bg-orange-100 dark:hover:bg-orange-800 text-orange-700 dark:text-orange-300"
+            className="hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400"
           >
             <LogOut className="h-4 w-4" />
           </Button>
